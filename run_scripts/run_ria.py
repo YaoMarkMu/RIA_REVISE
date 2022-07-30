@@ -81,7 +81,6 @@ def run_experiment(config):
         relation_flag=config['relation_flag'],
         no_weight=config['no_weight'],
         tem_dist=config['tem_dist'],
-        single_train=config['single_train'],
     )
 
     policy = MPCController(
@@ -141,9 +140,6 @@ def run_experiment(config):
         mcl_cadm=True,
         history_length=config["history_length"],
         state_diff=config["state_diff"],
-        test_embed=config["test_embed"],
-        test_weight=config["test_weight"],
-        test_prederror=config["test_prederror"],
         load_path=config["load_path"],
         config=config,
         # contrast_flag=config['contrast_flag'],
@@ -191,7 +187,7 @@ if __name__ == "__main__":
         "--only_test_flag", action="store_true", help="flag to enable only test"
     )
     parser.add_argument(
-        "--ensemble_size", type=int, default=5, help="size of ensembles"
+        "--ensemble_size", type=int, default=2, help="size of ensembles"
     )
     parser.add_argument("--head_size", type=int, default=1, help="size of heads")
     parser.add_argument(
